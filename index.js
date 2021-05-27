@@ -78,7 +78,7 @@ const StringHasher = () => {
     },
     sha1Hasher: function() {
       let string = readLineSync.question("Enter string to generate sha-1 hash: ");
-      return Buffer.from(string, 'sha1').toString('ascii');
+      return crypto.createHash("sha1").update(string).digest('hex');
     },
     sha256Hasher: function() {
       let string = readLineSync.question("Enter string to generate sha-256 hash: ");
